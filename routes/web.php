@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProduitController;
+use App\Models\Produit;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +16,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // Produit::create([
+    //     'nom' => 'Préssea Ananas',
+    //     'prix' => 1000,
+    //     'quantiteEnStock' => 150,
+    //     'code' => 'PRESANA',
+    //     'couleur' => '#12ffif',
+    //     'etat' => true,
+    // ]);
     return view('welcome');
-});
+})->name("home");
+
 Route::get('/contact', function () {
     return view('contact');
-})->name('contact');
+})->name("contact");
+
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name("dashboard");
+
+Route::get('/well', function () {
+    return view('welcomeclone');
+})->name("welcome");
+
+Route::resource('produit', ProduitController::class);
