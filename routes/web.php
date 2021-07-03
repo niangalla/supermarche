@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BoutiqueController;
 use App\Models\Produit;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +26,7 @@ Route::get('/', function () {
     //     'couleur' => '#12ffif',
     //     'etat' => true,
     // ]);
-    return view('welcome');
+    return view('login');
 })->name("home");
 
 Route::get('/contact', function () {
@@ -35,8 +37,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name("dashboard");
 
-Route::get('/well', function () {
-    return view('welcomeclone');
-})->name("welcome");
+// Route::get('/login', function () {
+//     return view('login');
+// })->name("login");
+
+// Route::post('/', ['UserController@loginUser']);
 
 Route::resource('produit', ProduitController::class);
+
+Route::resource('boutique', BoutiqueController::class);
+
+Route::resource('user', UserController::class);

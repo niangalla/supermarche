@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.base')
 
 @section('title', 'Liste des produits')
 
@@ -10,8 +10,11 @@
         Liste Produit
     </div>
     <div class="col-md-6 d-flex justify-content-end ">
-        <a href="{{ route('produit.create') }}" class="col-2 btn btn-sm btn-primary d-flex justify-content-center">
+        <a href="{{ route('produit.create') }}" class="mr-2 col-2 btn btn-sm btn-primary d-flex justify-content-center">
             <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+        </a>
+        <a href="{{ route('user.index') }}" class="col-4 btn btn-sm btn-danger d-flex justify-content-end">
+            Deconnexion
         </a>
     </div>
 </div>
@@ -20,9 +23,6 @@
 @endsection
 
 @section('contenu')
-<div class="row">
-
-</div>
 <div class="row">
     @foreach ($produits as $produit)
     <div class="col-12 col-md-6 col-lg-4">

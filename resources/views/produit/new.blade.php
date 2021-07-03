@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.base')
 
 @section('title', 'Creation Produit')
 
@@ -7,10 +7,7 @@
 @section('sousTitrePage', 'Creation Produit')
 
 @section('contenu')
-@foreach ($errors as $message)
-    {{ $message }}
-@endforeach
-
+   
 <div class="container">
         <h2>Formulaire de Creation d'un Produit</h2>
         <form action="{{ route('produit.store') }}" method="POST">
@@ -19,23 +16,28 @@
         <div class="row">
             <div class="form-group col-12 col-md-6">
                 <label for="">Nom: </label>
-                <input value="{{ old('nom') }}" type="text" name="nomprod"  class="form-control @error('nomprod') is-invalid @enderror" placeholder="" aria-describedby="helpId" >
+                <input value="{{ old('nomprod') }}" type="text" name="nomprod"  class="form-control @error('nomprod') is-invalid @enderror" placeholder=""  >
+                {!! $errors->first('nomprod', '<span class="error alert-danger">:message</span>') !!}
             </div>
             <div class="form-group col-12 col-md-6">
                 <label for="">Prix: </label>
-                <input value="{{ old('prix') }}" type="number" name="prixprod"  class="form-control  @error('prixprod') is-invalid @enderror" placeholder="" aria-describedby="helpId">
+                <input value="{{ old('prixprod') }}" type="number" name="prixprod"  class="form-control  @error('prixprod') is-invalid @enderror" placeholder="">
+                {!! $errors->first('prixprod', '<span class="error alert-danger">:message</span>') !!}
             </div>
             <div class="form-group col-12 col-md-6">
                 <label for="">Quantite en Stock: </label>
-                <input value="{{ old('qtprod') }}" type="number" name="qtprod"  class="form-control  @error('qtprod') is-invalid @enderror" placeholder="" aria-describedby="helpId">
+                <input value="{{ old('qtprod') }}" type="number" name="qtprod"  class="form-control  @error('qtprod') is-invalid @enderror" placeholder="">
+                {!! $errors->first('qtprod', '<span class="error alert-danger">:message</span>') !!}
             </div>
             <div class="form-group col-12 col-md-6">
                 <label for="">Code: </label>
-                <input value="{{ old('code') }}" type="text" name="codeprod"  class="form-control  @error('codeprod') is-invalid @enderror" placeholder="" aria-describedby="helpId">
+                <input value="{{ old('code') }}" type="text" name="codeprod"  class="form-control  @error('codeprod') is-invalid @enderror" placeholder="">
+                {!! $errors->first('codeprod', '<span class="error alert-danger">:message</span>') !!}
             </div>
             <div class="form-group col-12 col-md-6">
                 <label for="">Couleur: </label>
-                <input value="{{ old('couleur') }}" type="color" name="couleurprod"  class="form-control  @error('couleurprod') is-invalid @enderror" placeholder="" aria-describedby="helpId">
+                <input value="{{ old('couleurprod') }}" type="color" name="couleurprod"  class="form-control  @error('couleurprod') is-invalid @enderror" placeholder="">
+                {!! $errors->first('couleurprod', '<span class="error alert-danger">:message</span>') !!}
             </div>
             <div class="form-group col-12 col-md-6">
                 <label for="">Etat: &nbsp;</label>
