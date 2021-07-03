@@ -41,6 +41,7 @@ class ProduitController extends Controller
             'prixprod' => 'required|min:1',
             'qtprod' => 'required',
             'codeprod' => 'required|unique:produits,code',
+            'couleurprod' => 'required',
         ]);
 
         Produit::create([
